@@ -154,7 +154,7 @@ async def not_joined(client: Client, message: Message):
         pass
 
     await message.reply_photo(
-    photo=FORCE_PIC, 
+    photo=F_PIC, 
     caption=FORCE_MSG.format(
         first=message.from_user.first_name,
         last=message.from_user.last_name,
