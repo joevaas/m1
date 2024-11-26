@@ -17,7 +17,7 @@ DB_NAME = os.environ.get("DB_NAME", "Naruto_TAF")
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002093054178"))
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002005092018"))
-FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1002495435011"))
+FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1002158356900"))
 
 
 FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "10800")) # auto delete in seconds
