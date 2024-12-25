@@ -20,7 +20,7 @@ FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002005092018"))
 FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1002158356900"))
 
 
-FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "10800")) # auto delete in seconds
+FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "600")) # auto delete in seconds
 # Url of Your Image 
 START_PIC = os.environ.get("START_PIC", "https://4kwallpapers.com/images/wallpapers/naruto-uzumaki-3840x2160-18710.jpg")
 F_PIC = os.environ.get("F_PIC", "https://ibb.co/2tr6wx6")
