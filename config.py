@@ -28,7 +28,7 @@ START_PIC = os.environ.get("START_PIC", "https://4kwallpapers.com/images/wallpap
 F_PIC = os.environ.get("F_PIC", "https://ibb.co/2tr6wx6")
 
 
-PORT = os.environ.get("PORT", "8080")
+PORT = os.environ.get("PORT", "8050")
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 
