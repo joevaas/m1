@@ -4,8 +4,8 @@ from pyrogram.enums import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, FILE_AUTO_DELETE, START_PIC, F_PIC
-from helper_func import subscribed, encode, decode, get_messages
+from config import *
+from helper_func import *
 from database.database import add_user, del_user, full_userbase, present_user
 
 madflixofficials = FILE_AUTO_DELETE
@@ -16,7 +16,7 @@ file_auto_delete = humanize.naturaldelta(jishudeveloper)
 
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed)
+@Bot.on_message(filters.command('start') & filters.private & subscribed1 & subscribed2 & subscribed3 & subscribed4)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     if not await present_user(id):
@@ -135,23 +135,53 @@ async def start_command(client: Client, message: Message):
     
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    buttons = [
-        [
-            InlineKeyboardButton(text="Join Channel 1", url=client.invitelink),
-            InlineKeyboardButton(text="Join Channel 2", url=client.invitelink2),
-        ]
-    ]
+    buttons = []
+
+    # Check if the first and second channels are both set
+    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2:
+        buttons.append([
+            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_1", url=client.invitelink1),
+            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_2 •", url=client.invitelink2),
+        ])
+    # Check if only the first channel is set
+    elif FORCE_SUB_CHANNEL_1:
+        buttons.append([
+            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_1•", url=client.invitelink1)
+        ])
+    # Check if only the second channel is set
+    elif FORCE_SUB_CHANNEL_2:
+        buttons.append([
+            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_2•", url=client.invitelink2)
+        ])
+
+    # Check if the third and fourth channels are set
+    if FORCE_SUB_CHANNEL_3 and FORCE_SUB_CHANNEL_4:
+        buttons.append([
+            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_3", url=client.invitelink3),
+            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_4•", url=client.invitelink4),
+        ])
+    # Check if only the first channel is set
+    elif FORCE_SUB_CHANNEL_3:
+        buttons.append([
+            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_3•", url=client.invitelink3)
+        ])
+    # Check if only the second channel is set
+    elif FORCE_SUB_CHANNEL_4:
+        buttons.append([
+            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_4•", url=client.invitelink4)
+        ])
+
+    # Append "Try Again" button if the command has a second argument
     try:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text = 'Try Again',
-                    url = f"https://t.me/{client.username}?start={message.command[1]}"
-                )
-            ]
-        )
+        buttons.append([
+            InlineKeyboardButton(
+                text="Get File",
+                url=f"https://t.me/{client.username}?start={message.command[1]}"
+            )
+        ])
     except IndexError:
-        pass
+        pass  # Ignore if no second argument is present
+
 
     await message.reply_photo(
     photo=F_PIC, 
