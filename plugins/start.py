@@ -133,7 +133,7 @@ async def start_command(client: Client, message: Message):
 
     
     
-@Bot.on_message(filters.command('start') & filters.private & subscribed1 & subscribed2 & subscribed3 & subscribed4)
+@Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = []
 
