@@ -138,38 +138,18 @@ async def not_joined(client: Client, message: Message):
     buttons = []
 
     # Check if the first and second channels are both set
-    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2:
-        buttons.append([
-            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_1", url=client.invitelink1),
-            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_2 •", url=client.invitelink2),
-        ])
-    # Check if only the first channel is set
-    elif FORCE_SUB_CHANNEL_1:
-        buttons.append([
-            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_1•", url=client.invitelink1)
-        ])
-    # Check if only the second channel is set
-    elif FORCE_SUB_CHANNEL_2:
-        buttons.append([
-            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_2•", url=client.invitelink2)
-        ])
-
-    # Check if the third and fourth channels are set
-    if FORCE_SUB_CHANNEL_3 and FORCE_SUB_CHANNEL_4:
-        buttons.append([
-            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_3", url=client.invitelink3),
-            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_4•", url=client.invitelink4),
-        ])
-    # Check if only the first channel is set
-    elif FORCE_SUB_CHANNEL_3:
-        buttons.append([
-            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_3•", url=client.invitelink3)
-        ])
-    # Check if only the second channel is set
-    elif FORCE_SUB_CHANNEL_4:
-        buttons.append([
-            InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_4•", url=client.invitelink4)
-        ])
+    if client.invitelink1 is not None and message.from_user.id not in ADMINS and not await subscribed1(client, message):
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_1", url=client.invitelink1)])
+            
+    if client.invitelink2 is not None and message.from_user.id not in ADMINS and not await subscribed2(client, message):
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_2", url=client.invitelink2)])
+        
+    if client.invitelink3 is not None and message.from_user.id not in ADMINS and not await subscribed3(client, message):
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_3", url=client.invitelink3)])
+                  
+    if client.invitelink4 is not None and message.from_user.id not in ADMINS and not await subscribed4(client, message):
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_4", url=client.invitelink4)])
+            
 
     # Append "Try Again" button if the command has a second argument
     try:
