@@ -139,23 +139,23 @@ async def not_joined(client: Client, message: Message):
 
     # Check if the first and second channels are both set
     if client.invitelink1 is not None and message.from_user.id not in ADMINS and not await is_subscribed1(filter, client, message):
-        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink1)])
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •", url=client.invitelink1)])
             
     if client.invitelink2 is not None and message.from_user.id not in ADMINS and not await is_subscribed2(filter, client, message):
-        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink2)])
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •", url=client.invitelink2)])
         
     if client.invitelink3 is not None and message.from_user.id not in ADMINS and not await is_subscribed3(filter, client, message):
-        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink3)])
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •", url=client.invitelink3)])
                   
     if client.invitelink4 is not None and message.from_user.id not in ADMINS and not await is_subscribed4(filter, client, message):
-        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink4)])
+        buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •", url=client.invitelink4)])
             
 
     # Append "Try Again" button if the command has a second argument
     try:
         buttons.append([
             InlineKeyboardButton(
-                text="Get File",
+                text="⚡ Get File ⚡",
                 url=f"https://t.me/{client.username}?start={message.command[1]}"
             )
         ])
