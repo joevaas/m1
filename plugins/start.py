@@ -106,7 +106,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton('⚡ 𝙹𝚘𝚒𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ⚡', url=f'https://t.me/Tamil_Anime_Files')
+            InlineKeyboardButton('⚡ 𝙹𝚘𝚒𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕s ⚡', url=f'https://t.me/addlist/jUOBjhFjCcpmZTll')
         ],
         [
             InlineKeyboardButton('⛩ 𝙰𝚋𝚘𝚞𝚝', 'about'),
