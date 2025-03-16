@@ -16,7 +16,7 @@ file_auto_delete = humanize.naturaldelta(jishudeveloper)
 
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed1 & subscribed2 & subscribed3 & subscribed4)
+@Bot.on_message(filters.command('start') & filters.private & is_subscribed1 & is_subscribed2 & is_subscribed3 & is_subscribed4)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     if not await present_user(id):
