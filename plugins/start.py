@@ -16,7 +16,7 @@ file_auto_delete = humanize.naturaldelta(jishudeveloper)
 
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed1 & subscribed2 & subscribed3 & subscribed4)
+@Bot.on_message(filters.command('start') & filters.private)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     if not await present_user(id):
@@ -138,16 +138,16 @@ async def not_joined(client: Client, message: Message):
     buttons = []
 
     # Check if the first and second channels are both set
-    if client.invitelink1 is not None and message.from_user.id not in ADMINS and not await subscribed1(client, message):
+    if client.invitelink1 is not None and message.from_user.id not in ADMINS and not await is_subscribed1(client, message):
         buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_1", url=client.invitelink1)])
             
-    if client.invitelink2 is not None and message.from_user.id not in ADMINS and not await subscribed2(client, message):
+    if client.invitelink2 is not None and message.from_user.id not in ADMINS and not await is_subscribed2(client, message):
         buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_2", url=client.invitelink2)])
         
-    if client.invitelink3 is not None and message.from_user.id not in ADMINS and not await subscribed3(client, message):
+    if client.invitelink3 is not None and message.from_user.id not in ADMINS and not await is_subscribed3(client, message):
         buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_3", url=client.invitelink3)])
                   
-    if client.invitelink4 is not None and message.from_user.id not in ADMINS and not await subscribed4(client, message):
+    if client.invitelink4 is not None and message.from_user.id not in ADMINS and not await is_subscribed4(client, message):
         buttons.append([InlineKeyboardButton(text="• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ_4", url=client.invitelink4)])
             
 
