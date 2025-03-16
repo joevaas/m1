@@ -11,7 +11,7 @@ from pyrogram.errors import FloodWait
 async def is_subscribed1(client, message):
     if not FORCE_SUB_CHANNEL_1:
         return True
-    user_id = update.from_user.id
+    user_id = message.from_user.id
     if user_id in ADMINS:
         return True
     try:
@@ -28,7 +28,7 @@ async def is_subscribed1(client, message):
 async def is_subscribed2(client, message):
     if not FORCE_SUB_CHANNEL_2:
         return True
-    user_id = update.from_user.id
+    user_id = message.from_user.id
     if user_id in ADMINS:
         return True
     try:
@@ -44,7 +44,7 @@ async def is_subscribed2(client, message):
 async def is_subscribed3(client, message):
     if not FORCE_SUB_CHANNEL_3:
         return True
-    user_id = update.from_user.id
+    user_id = message.from_user.id
     if user_id in ADMINS:
         return True
     try:
@@ -60,7 +60,7 @@ async def is_subscribed3(client, message):
 async def is_subscribed4(client, message):
     if not FORCE_SUB_CHANNEL_4:
         return True
-    user_id = update.from_user.id
+    user_id = message.from_user.id
     if user_id in ADMINS:
         return True
     try:
