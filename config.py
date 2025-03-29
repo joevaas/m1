@@ -5,7 +5,7 @@ from logging.handlers import RotatingFileHandler
 
 
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7427035170:AAEzdX3O5JzmWw59S_P4n-kAVWXhJbNUujI")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7427035170:AAG8fh9-uEJdNZavx5aF3xrcUMRz58hViL0")
 API_ID = int(os.environ.get("API_ID", "25797857"))
 API_HASH = os.environ.get("API_HASH", "77717127ece56fac64ebea6250db8bb7")
 
@@ -18,7 +18,7 @@ DB_NAME = os.environ.get("DB_NAME", "Naruto_TAF")
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002093054178"))
 FORCE_SUB_CHANNEL_1 = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002005092018"))
 FORCE_SUB_CHANNEL_2 = int(os.environ.get("FORCE_SUB_CHANNEL_2", "-1002034364116"))
-FORCE_SUB_CHANNEL_3 = int(os.environ.get("FORCE_SUB_CHANNEL_3", "-1002412330704"))
+FORCE_SUB_CHANNEL_3 = int(os.environ.get("FORCE_SUB_CHANNEL_3", "-1002635387240"))
 FORCE_SUB_CHANNEL_4 = int(os.environ.get("FORCE_SUB_CHANNEL_4", "-1002448901304"))
 
 
@@ -34,7 +34,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 
 try:
-    ADMINS=[6693549185]
+    ADMINS=[7043973899]
     for x in (os.environ.get("ADMINS", "7043973899").split()):
         ADMINS.append(int(x))
 except ValueError:
